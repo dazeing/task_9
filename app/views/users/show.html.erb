@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+
+<p>
+    <strong>Hello <%= @user.login %></strong>
+</p>
+
+<p>
+    <%= link_to "Logout", root_path %>
+</p>
+
+<table>
+  <tr>
+    <th>login</th>
+    <th>Name</th>
+    <th>Type</th>
+    <th></th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+        <td><%= link_to user.login, edit_user_path(user) %></td>
+        <td><%= user.name %></td>
+        <td><%= user.type %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h1>history of changes</h1>
+
+<table>
+  <tr>
+    <th>user login</th>
+    <th>type</th>
+    <th>date</th>
+    <th></th>
+  </tr>
+
+  <% @logs.each do |log| %>
+    <tr>
+        <td><%= log.user_login %></td>
+        <td><%= log.user_type %></td>
+        <td><%= log.date %></td>
+    </tr>
+  <% end %>
+</table>
+
